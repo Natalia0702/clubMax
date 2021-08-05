@@ -13,15 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ClubMax">
         <activity
-            android:name=".ListActivity"
+            android:name=".view.activity.MovieListActivity"
             android:label="@string/title_activity_list"
             android:theme="@style/Theme.ClubMax.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetalhesActivity">
+        <activity android:name=".view.activity.DetalhesActivity">
 
         </activity>
     </application>

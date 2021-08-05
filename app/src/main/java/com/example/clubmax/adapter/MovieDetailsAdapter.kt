@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.clubmax.databinding.ItemFilmeBinding
-import model.MovieModel
+import model.model.MovieModel
 
 class MoviesViewHolder(val binding: ItemFilmeBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -21,7 +21,7 @@ class MovieDetailsAdapter(val callback: (Int) -> Unit) : RecyclerView.Adapter<Mo
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
         //val item = listMovies[position]
         val item = listMovies.get(position)
-        holder.binding.titulo.text = item.title
+        //holder.binding.titulo.text = item.title
 
         Glide.with(holder.binding.root).load("https://image.tmdb.org/t/p/w500${item.poster_path}")
             .into(holder.binding.poster)
@@ -36,7 +36,8 @@ class MovieDetailsAdapter(val callback: (Int) -> Unit) : RecyclerView.Adapter<Mo
     }
 
     fun addItemList(list: List<MovieModel>) {
+        val primeiroIndiceVazio = listMovies.size
         listMovies.addAll(list)
-        notifyDataSetChanged()
+        notifyItemRangeInserted(primeiroIndiceVazio, list.size)
     }
 }

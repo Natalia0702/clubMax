@@ -1,10 +1,10 @@
-package repository
+package model.repository
 
-import com.example.clubmax.ListActivity
 import com.example.clubmax.ListaPaginada
-import model.MovieModel
 import com.example.clubmax.TheMoviesApi
 import kotlinx.coroutines.*
+import model.model.MovieModel
+import model.repository.MovieRepository.moviesApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,16 +18,16 @@ object MovieRepository {
     init {
         retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://api.themoviede.org")
+            .baseUrl("https://api.themoviedb.org")
             .build()
         moviesApi = retrofit.create(TheMoviesApi::class.java)
     }
 
-    fun getPopular(callback: (List<MovieModel>) -> Unit) {
+    fun getPopular(callback: (List<MovieModel>) -> Unit, pageMovie: Int = 1) {
         println("Caiu no getPopular")
         CoroutineScope(GlobalScope.coroutineContext).launch(Dispatchers.Main) {
             withContext(Dispatchers.IO) {
-                val call = moviesApi.listPopular()
+                val call = moviesApi.listPopular(page = pageMovie)
                 call.enqueue(object : Callback<ListaPaginada> {
                     override fun onResponse(
                         call: Call<ListaPaginada>,
@@ -35,6 +35,7 @@ object MovieRepository {
                     ) {
                         println("Caiu no onresponse")
                         callback(response.body()?.results ?: mutableListOf())
+
                     }
 
                     override fun onFailure(call: Call<ListaPaginada>, t: Throwable) {
@@ -45,4 +46,30 @@ object MovieRepository {
             }
         }
     }
+
+
+    fun getMovie(callback: (MovieModel) -> Unit, id: Int) {
+        CoroutineScope(GlobalScope.coroutineContext).launch(Dispatchers.Main) {
+            withContext(Dispatchers.IO) {
+                val callApi = moviesApi.getMovieById(id = id)
+                callApi.enqueue(object : Callback<MovieModel> {
+                    override fun onResponse(
+                        call: Call<MovieModel>,
+                        response: Response<MovieModel>
+                    ) {
+                        response.body()?.let { movie ->
+                            callback(movie)
+                        }
+
+                    }
+
+                    override fun onFailure(call: Call<MovieModel>, t: Throwable) {
+
+                    }
+                })
+            }
+        }
+    }
 }
+
+

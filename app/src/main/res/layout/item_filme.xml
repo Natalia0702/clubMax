@@ -4,31 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-<LinearLayout
-    android:id="@+id/itemLayout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    tools:context=".ListActivity">
-
-    <ImageView
-        android:id="@+id/poster"
-        android:layout_width="140dp"
-        android:layout_height="100dp"
-
-        android:layout_margin="50dp"
-        android:layout_marginBottom="10dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/poster_filme"
-        android:contentDescription="TODO" />
-
-    <TextView
-        android:id="@+id/titulo"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/itemLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text="Título"
-        />
+        android:background="@color/black"
+        android:orientation="horizontal"
+        tools:context=".view.activity.MovieListActivity">
 
-</LinearLayout>
+        <ImageView
+
+            android:id="@+id/poster"
+            android:layout_width="100dp"
+            android:layout_height="140dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="TODO"
+            android:scaleType="fitXY"
+            android:src="@drawable/poster_filme" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

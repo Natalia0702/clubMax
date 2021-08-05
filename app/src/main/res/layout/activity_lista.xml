@@ -5,32 +5,37 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        tools:context=".ListActivity"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".view.activity.MovieListActivity"
         android:orientation="vertical">
 
 
+
         <TextView
-            android:id="@+id/titulo"
-            android:layout_width="match_parent"
+
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="@string/lista_de_filmes"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
             />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_item"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-            tools:itemCount="10"
+            tools:itemCount="30"
             tools:listitem="@layout/item_filme"
+            app:spanCount="3"
             />
     </LinearLayout>
 </layout>
