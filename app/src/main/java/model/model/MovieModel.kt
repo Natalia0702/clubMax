@@ -7,6 +7,9 @@ data class MovieModel (
     val overview: String,
     val backdrop_path: String,
     val genres: List<GenreModel>?,
-    val adult: Boolean
-
+    val adult: Boolean,
+    val release_date: String,
+    val runtime: Int?,
+    val vote_average: Double,
+    val vote_count: Int
 )

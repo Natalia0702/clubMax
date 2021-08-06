@@ -10,12 +10,17 @@
             type="String" />
 
     </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
         tools:context=".view.activity.DetalhesActivity">
+
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/poster"
@@ -25,30 +30,112 @@
             android:scaleType="fitXY"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/poster_filme" />
+            app:srcCompat="@drawable/poster_filme"
+            />
 
-
-        <androidx.appcompat.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/buttonReturn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="4dp"
+            android:padding="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/yellow_seta" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/margin"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
             android:layout_marginBottom="15dp"
-            android:background="@color/white"
-            android:text="Voltar"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/margin_yellow"
+            app:layout_constraintStart_toEndOf="@id/sinopse"
+            app:layout_constraintTop_toBottomOf="@id/time" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/shareIntent"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="36dp"
+            android:background="@color/black"
+            android:src="@drawable/share"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.69"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/time" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/medalDraw"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginRight="40dp"
+            android:background="@color/black"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sinopse" />
+            android:src="@drawable/medal"
+            app:layout_constraintStart_toStartOf="@id/time"
+            app:layout_constraintTop_toBottomOf="@id/time" />
 
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/genero"
+            android:id="@+id/vote"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="25dp"
+            android:text="125"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/time"
+            app:layout_constraintTop_toBottomOf="@id/shareIntent"
+            app:layout_constraintWidth_default="wrap" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/starDraw"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="148dp"
+            android:src="@drawable/star"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.269"
+            app:layout_constraintStart_toStartOf="@id/time"
+            app:layout_constraintTop_toBottomOf="@id/time" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/starPref"
+            android:layout_width="33dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="25dp"
+            android:text="8.8"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/time"
+            app:layout_constraintTop_toBottomOf="@id/medalDraw"
+            app:layout_constraintWidth_default="wrap" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/generoNome"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:text="Gênero: Drama"
+            android:text="Gênero:"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -56,47 +143,108 @@
             app:layout_constraintTop_toBottomOf="@id/titleText"
             app:layout_constraintWidth_default="wrap" />
 
+
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/genero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:text="Drama"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/generoNome"
+            app:layout_constraintTop_toBottomOf="@id/titleText"
+            app:layout_constraintWidth_default="wrap" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/classif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="18+"
+            android:text="Classif:"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/genero"
             app:layout_constraintTop_toTopOf="@id/genero" />
-
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="1dp"
             android:text="18+"
             android:textColor="@color/white"
             android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/genero"
+
+            app:layout_constraintStart_toEndOf="@id/classif"
             app:layout_constraintTop_toTopOf="@id/genero" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dateName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date:"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/generoNome"
+            app:layout_constraintTop_toBottomOf="@id/generoNome"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:text="01/01/2021"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/dateName"
+            app:layout_constraintTop_toBottomOf="@id/generoNome"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/timeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Time:"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/date"
+            app:layout_constraintTop_toBottomOf="@id/generoNome" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="190 Minute"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/timeName"
+            app:layout_constraintTop_toBottomOf="@id/generoNome" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/sinopse"
-            android:layout_width="0dp"
+            android:scrollHorizontally="true"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
+            android:justificationMode="inter_word"
             android:text="Sinopse: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel diam ultrices, suscipit enim at, tristique lacus. Proin commodo, augue nec viverra rutrum, nibh eros rutrum odio, lobortis blandit velit erat ac nunc. "
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/genero"
+            android:maxLength="200"
+            android:ellipsize="end"
 
+            app:layout_constraintStart_toStartOf="@id/generoNome"
+            app:layout_constraintTop_toBottomOf="@id/time"
             />
+
 
         <androidx.appcompat.widget.AppCompatTextView
 
@@ -114,9 +262,10 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/poster" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
 </layout>
 
 
